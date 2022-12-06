@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="in3_messaging" translate="label" sortOrder="10">
+            <label>In3 Messaging plug-in</label>
+        </tab>
+
+        <section id="in3_settings" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>In3 Settings</label>
+            <tab>in3_messaging</tab>
+            <resource>Edifference_In3::config</resource>
+            <group id="enable_light_mode" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Layout settings</label>
+                <field id="light_mode_active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable Light mode</label>
+                    <comment>Enable Light mode for In3 widget. Default is Dark mode</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
