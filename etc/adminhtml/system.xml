@@ -2,20 +2,35 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="in3_messaging" translate="label" sortOrder="10">
-            <label>In3 Messaging plug-in</label>
+        <tab id="in3_onsite_messaging" translate="label" sortOrder="450">
+            <label>In3 Onsite Messaging</label>
         </tab>
-
-        <section id="in3_settings" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>In3 Settings</label>
-            <tab>in3_messaging</tab>
+        <section id="in3_onsite_messaging" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Settings</label>
+            <tab>in3_onsite_messaging</tab>
             <resource>Edifference_In3OnsiteMessaging::config</resource>
-            <group id="enable_light_mode" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Layout settings</label>
-                <field id="light_mode_active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
-                    <label>Enable Light mode</label>
-                    <comment>Enable Light mode for In3 widget. Default is Dark mode</comment>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <group id="frontend" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend settings</label>
+                <field id="locations" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Locations</label>
+                    <source_model>Edifference\In3OnsiteMessaging\Model\Config\Source\Locations</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="theme" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20" translate="label" type="select">
+                    <label>Theme</label>
+                    <source_model>Edifference\In3OnsiteMessaging\Model\Config\Source\Theme</source_model>
+                </field>
+            </group>
+            <group id="price" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Price settings</label>
+                <comment>Price range for which the label is shown on product pages and total price of quote</comment>
+                <field id="min" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Min</label>
+                    <validate>required-entry validate-digits validate-zero-or-greater</validate>
+                </field>
+                <field id="max" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max</label>
+                    <validate>required-entry validate-digits validate-zero-or-greater</validate>
                 </field>
             </group>
         </section>
