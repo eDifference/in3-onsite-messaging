@@ -5,10 +5,11 @@ namespace Edifference\In3OnsiteMessaging\Block;
 
 use Edifference\In3OnsiteMessaging\Model\Config;
 use Edifference\In3OnsiteMessaging\Model\Config\Source\Locations;
-use Magento\Catalog\Helper\Data;
+use Magento\Catalog\Helper\Data as CatalogHelper;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Pricing\Helper\Data as PricingHelper;
 use Magento\Framework\View\Element\Template\Context;
 
 /**
@@ -16,31 +17,43 @@ use Magento\Framework\View\Element\Template\Context;
  */
 class ProductBanner extends AbstractBanner
 {
-    protected Data $catalogHelper;
+    protected CatalogHelper $catalogHelper;
 
     /**
-     * @param Context $context
-     * @param Config  $config
-     * @param Session $checkoutSession
-     * @param Data    $catalogHelper
-     * @param array   $data
+     * @param Context       $context
+     * @param Config        $config
+     * @param Session       $checkoutSession
+     * @param CatalogHelper $catalogHelper
+     * @param array         $data
      * @throws LocalizedException
      * @throws NoSuchEntityException
      */
     public function __construct(
-        Context $context,
-        Config  $config,
-        Session $checkoutSession,
-        Data    $catalogHelper,
-        array   $data = []
+        Context       $context,
+        Config        $config,
+        Session       $checkoutSession,
+        PricingHelper $priceHelper,
+        CatalogHelper $catalogHelper,
+        array         $data = []
     ) {
         parent::__construct(
             $context,
             $config,
             $checkoutSession,
+            $priceHelper,
             $data
         );
         $this->catalogHelper = $catalogHelper;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmount(): string
+    {
+        return $this->priceHelper->currency(
+            $this->catalogHelper->getProduct()->getFinalPrice() / 3
+        );
     }
 
     /**
