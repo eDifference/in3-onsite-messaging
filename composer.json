@@ -1,5 +1,5 @@
 {
-    "name": "edifference/in3",
+    "name": "edifference/in3-onsite-messaging",
     "description": "In3 On-site Messaging plug-in for Magento 2",
     "type": "magento2-module",
     "version": "1.0.0",
@@ -12,7 +12,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Edifference\\In3\\": ""
+            "Edifference\\In3OnsiteMessaging\\": ""
         }
     }
 }

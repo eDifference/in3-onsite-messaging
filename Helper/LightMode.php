@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Edifference\In3\Helper;
+namespace Edifference\In3OnsiteMessaging\Helper;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\AbstractHelper;

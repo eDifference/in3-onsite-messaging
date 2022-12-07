@@ -3,14 +3,14 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="Edifference_In3::css/style.css" />
-        <script src="Edifference_In3::js/in3Tooltip.js" />
+        <css src="Edifference_In3OnsiteMessaging::css/style.css" />
+        <script src="Edifference_In3OnsiteMessaging::js/in3Tooltip.js" />
     </head>
     <body>
         <referenceContainer name="product.info.main">
             <block class="Magento\Framework\View\Element\Template"
                    name="in3.banner.product.page"
-                   template="Edifference_In3::in3-on-single-product.phtml" after="product.info.price"/>
+                   template="Edifference_In3OnsiteMessaging::in3-on-single-product.phtml" after="product.info.price"/>
         </referenceContainer>
     </body>
 </page>
