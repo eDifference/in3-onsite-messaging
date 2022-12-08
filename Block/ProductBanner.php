@@ -68,12 +68,6 @@ class ProductBanner extends AbstractBanner
         if (!$product) {
             return '';
         }
-        if ($product->getFinalPrice() <  $this->config->getMinPrice()) {
-            return '';
-        }
-        if ($product->getFinalPrice() > $this->config->getMaxPrice()) {
-            return '';
-        }
         return parent::_toHtml();
     }
 }

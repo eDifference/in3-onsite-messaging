@@ -63,6 +63,22 @@ class AbstractBanner extends Template
     }
 
     /**
+     * @return int
+     */
+    public function getMin(): int
+    {
+        return $this->config->getMinPrice();
+    }
+
+    /**
+     * @return int
+     */
+    public function getMax(): int
+    {
+        return $this->config->getMaxPrice();
+    }
+
+    /**
      * Check if location of banner is in configured location list and should show
      * @param string $location
      * @return bool
