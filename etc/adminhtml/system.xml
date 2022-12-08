@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="in3_onsite_messaging" translate="label" sortOrder="450">
+        <tab id="in3_onsite_messaging" translate="label" sortOrder="450" class="in3-tab">
             <label>In3 Onsite Messaging</label>
         </tab>
         <section id="in3_onsite_messaging" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
