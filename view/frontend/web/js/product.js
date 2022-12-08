@@ -1,16 +1,13 @@
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 define([
     'jquery',
     'uiElement',
+    'Magento_Catalog/js/price-utils',
     'priceBox',
     'domReady!'
 ], function (
     $,
-    Component
+    Component,
+    priceUtils
 ) {
     'use strict';
 
@@ -53,10 +50,11 @@ define([
             console.debug(data);
             console.debug(data.finalPrice.final);
             console.debug(this.min, this.max);
+            this.amount(data.finalPrice.final);
         },
 
         getAmount: function() {
-            return this.amount;
+            return priceUtils.formatPrice(this.amount()/3);
         }
     });
 });
