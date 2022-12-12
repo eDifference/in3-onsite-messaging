@@ -16,10 +16,11 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'Edifference_In3OnsiteMessaging/label',
+            template: 'Edifference_In3OnsiteMessaging/banner',
         },
         min: null,
         max: null,
+        theme: null,
         amount: null,
 
         /**
@@ -39,8 +40,22 @@ define([
             return this;
         },
 
+        isVisible: function() {
+            if (this.amount() < this.min) {
+                return false;
+            }
+            if (this.amount() > this.max) {
+                return false;
+            }
+            return true;
+        },
+
         getAmount: function() {
             return priceUtils.formatPrice(this.amount()/3);
+        },
+
+        getTheme: function() {
+            return this.theme;
         }
     });
 });

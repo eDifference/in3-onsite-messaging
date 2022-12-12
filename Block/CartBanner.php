@@ -18,9 +18,6 @@ class CartBanner extends AbstractBanner
         if (!$this->isValidLocation(Locations::SHOPPING_CART)) {
             return '';
         }
-        if (!$this->isValidQuoteTotal()) {
-            return '';
-        }
         return parent::_toHtml();
     }
 }

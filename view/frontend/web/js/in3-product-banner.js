@@ -14,11 +14,12 @@ define([
     return Component.extend({
 
         defaults: {
-            template: 'Edifference_In3OnsiteMessaging/label',
+            template: 'Edifference_In3OnsiteMessaging/banner',
             priceBoxSelector: '.price-box',
         },
         min: null,
         max: null,
+        theme: null,
         amount: 0,
 
         /**
@@ -39,6 +40,19 @@ define([
             return this;
         },
 
+        isVisible: function() {
+            if (!this.amount()) {
+                return false;
+            }
+            if (this.amount() < this.min) {
+                return false;
+            }
+            if (this.amount() > this.max) {
+                return false;
+            }
+            return true;
+        },
+
         /**
          * Handle product price change
          *
@@ -55,6 +69,10 @@ define([
 
         getAmount: function() {
             return priceUtils.formatPrice(this.amount()/3);
+        },
+
+        getTheme: function() {
+            return this.theme;
         }
     });
 });

@@ -12,15 +12,12 @@
                     <item name="components" xsi:type="array">
                         <item name="checkout" xsi:type="array">
                             <item name="children" xsi:type="array">
-                                <item name="steps" xsi:type="array">
+                                <item name="sidebar" xsi:type="array">
                                     <item name="children" xsi:type="array">
-                                        <item name="billing-step" xsi:type="array">
-                                            <item name="children" xsi:type="array">
-                                                <item name="in3-checkout-banner" xsi:type="array">
-                                                    <item name="component" xsi:type="string">Edifference_In3OnsiteMessaging/js/in3-checkout-banner</item>
-                                                    <item name="sortOrder" xsi:type="string">21</item>
-                                                </item>
-                                            </item>
+                                        <item name="in3-checkout-banner" xsi:type="array">
+                                            <item name="component" xsi:type="string">Edifference_In3OnsiteMessaging/js/in3-checkout-banner</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="sortOrder" xsi:type="string">1</item>
                                         </item>
                                     </item>
                                 </item>

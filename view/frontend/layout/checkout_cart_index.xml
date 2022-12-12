@@ -9,7 +9,7 @@
         <referenceContainer name="cart.summary">
             <block class="Edifference\In3OnsiteMessaging\Block\CartBanner"
                    name="in3.banner.cart"
-                   template="Edifference_In3OnsiteMessaging::in3-on-cart.phtml" after="checkout.cart.totals.container"/>
+                   template="Edifference_In3OnsiteMessaging::cart.phtml" after="checkout.cart.totals.container"/>
         </referenceContainer>
     </body>
 </page>

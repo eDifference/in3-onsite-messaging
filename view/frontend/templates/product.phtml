@@ -4,7 +4,7 @@ declare(strict_types = 1);
 use Edifference\In3OnsiteMessaging\Block\ProductBanner;
 /** @var ProductBanner $block */
 ?>
-<div id="in3" data-bind="scope: 'product'">
+<div id="in3" data-bind="scope: 'in3-product-banner'">
     <!-- ko template: getTemplate() --><!-- /ko -->
 </div>
 <script type="text/x-magento-init">
@@ -12,11 +12,12 @@ use Edifference\In3OnsiteMessaging\Block\ProductBanner;
         "#in3": {
             "Magento_Ui/js/core/app": {
                 "components": {
-                    "product": {
-                        "component": "Edifference_In3OnsiteMessaging/js/product",
+                    "in3-product-banner": {
+                        "component": "Edifference_In3OnsiteMessaging/js/in3-product-banner",
                         "config": {
                             "min":"<?= $block->getMin(); ?>",
-                            "max": "<?= $block->getMax(); ?>"
+                            "max": "<?= $block->getMax(); ?>",
+                            "theme": "<?= $block->getTheme(); ?>"
                         }
                     }
                 }

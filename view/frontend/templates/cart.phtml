@@ -4,7 +4,7 @@ declare(strict_types = 1);
 use Edifference\In3OnsiteMessaging\Block\CartBanner;
 /** @var CartBanner $block */
 ?>
-<div id="in3" data-bind="scope: 'cart'">
+<div id="in3" data-bind="scope: 'in3-cart-banner'">
     <!-- ko template: getTemplate() --><!-- /ko -->
 </div>
 <script type="text/x-magento-init">
@@ -12,11 +12,12 @@ use Edifference\In3OnsiteMessaging\Block\CartBanner;
         "#in3": {
             "Magento_Ui/js/core/app": {
                 "components": {
-                    "cart": {
-                        "component": "Edifference_In3OnsiteMessaging/js/cart",
+                    "in3-cart-banner": {
+                        "component": "Edifference_In3OnsiteMessaging/js/in3-cart-banner",
                         "config": {
                             "min":"<?= $block->getMin(); ?>",
-                            "max": "<?= $block->getMax(); ?>"
+                            "max": "<?= $block->getMax(); ?>",
+                            "theme": "<?= $block->getTheme(); ?>"
                         }
                     }
                 }

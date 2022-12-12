@@ -9,7 +9,7 @@
         <referenceContainer name="product.info.main">
             <block class="Edifference\In3OnsiteMessaging\Block\ProductBanner"
                    name="in3.banner.product.page"
-                   template="Edifference_In3OnsiteMessaging::in3-on-single-product.phtml" after="product.info.price"/>
+                   template="Edifference_In3OnsiteMessaging::product.phtml" after="product.info.price"/>
         </referenceContainer>
     </body>
 </page>
