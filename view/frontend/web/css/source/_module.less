@@ -12,44 +12,33 @@
 @light_theme__color: @sub__color;
 
 .in3 {
+    position: relative;
+
     &-widget {
         position: relative;
         display: inline-flex;
-        padding: 4px 35px 2px 50px;
+        padding: 4px 30px 2px 47px;
         box-sizing: border-box;
         margin: 10px 0 12px;
-        background-color: @main_background__color;
-        border-top: 5px solid @white__color;
-        border-bottom: 5px solid @white__color;
-        border-right: 5px solid @white__color;
         border-radius: 20px;
         color: @dark_theme_main__color;
         font-family: sans-serif;
         text-align: left;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            width: 47px;
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+            top: -9px;
+            height: 47px;
+            box-shadow: 1px 0 0 0 transparent, 40px 0 0 500px @main_background__color;
+            background: none;
+        }
 
         i {
-            &.logo {
-                position: absolute;
-                content: '';
-                width: 37px;
-                height: 37px;
-                top: 50%;
-                border: 5px solid @white__color;
-                margin-top: -23px;
-                margin-bottom: initial;
-                left: -4px;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                max-width: initial;
-
-                svg {
-                    width: 19px;
-                    height: 19px;
-                }
-            }
-
             &.info {
                 position: absolute;
                 content: '';
@@ -75,26 +64,6 @@
             }
         }
 
-        &.light {
-            .logo {
-                background-color: @light_theme_main__color;
-
-                svg {
-                    fill: @light_theme__color;
-                }
-            }
-        }
-
-        &.dark {
-            .logo {
-                background-color: @dark_theme_main__color;
-
-                svg {
-                    fill: @dark_theme__color;
-                }
-            }
-        }
-
         p {
             margin: 0;
             font-weight: 400;
@@ -105,6 +74,53 @@
 
         strong {
             font-weight: 700;
+        }
+
+        &-container {
+            z-index: 1;
+        }
+    }
+
+    i {
+        &.logo {
+            position: absolute;
+            content: '';
+            width: 37px;
+            height: 37px;
+            top: 50%;
+            margin-top: -20px;
+            margin-bottom: initial;
+            left: 0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: initial;
+
+            svg {
+                width: 19px;
+                height: 19px;
+            }
+        }
+    }
+
+    &.light {
+        .logo {
+            background-color: @light_theme_main__color;
+
+            svg {
+                fill: @light_theme__color;
+            }
+        }
+    }
+
+    &.dark {
+        .logo {
+            background-color: @dark_theme_main__color;
+
+            svg {
+                fill: @dark_theme__color;
+            }
         }
     }
 
@@ -121,6 +137,7 @@
         border: none;
         padding: 0;
         text-decoration: none;
+        background-color: @white__color;
 
         &.show {
             opacity: 100%;
@@ -137,18 +154,40 @@
             text-decoration: none;
         }
     }
+}
 
-    .in-cart-summary {
-        margin: 0 -10px;
+.checkout-cart-index {
+     .cart-summary {
+         #in3 {
+             margin: 0 -10px;
 
-        .in3-widget {
-            margin: 3px 0;
+             .in3-widget {
+                 margin: 3px 0;
+                 height: 30px;
+                 max-height: 30px;
 
-            i {
-                &.logo {
-                    left: 0;
-                }
-            }
+                 p {
+                     font-size: 12px;
+                 }
+             }
+
+             .in3-tooltip {
+                 margin-top: 10px;
+             }
+         }
+     }
+}
+
+.checkout-index-index {
+    .in3 {
+        margin: 0 10px;
+
+        &-widget {
+            width: 100%;
+        }
+
+        &-tooltip {
+            margin: 0 10px 30px;
         }
     }
 }
