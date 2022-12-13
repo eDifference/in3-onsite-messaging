@@ -73,6 +73,10 @@ define([
 
         getTheme: function() {
             return this.theme;
+        },
+
+        getPayIn3Url: function() {
+            return this.url;
         }
     });
 });

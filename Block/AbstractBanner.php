@@ -68,4 +68,12 @@ abstract class AbstractBanner extends Template
             true
         );
     }
+
+    /**
+     * @return string
+     */
+    public function getPayIn3Url(): string
+    {
+        return 'https://payin3.eu/nl/?country=nl&_&utm_source={url/domeinwebsite}&utm_medium=onsiteplugin&utm_campaign=magento&utm_content=readmore';
+    }
 }
