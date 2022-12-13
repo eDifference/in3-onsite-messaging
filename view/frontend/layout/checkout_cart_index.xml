@@ -2,9 +2,6 @@
 <page layout="page-layout-1column"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <script src="Edifference_In3OnsiteMessaging::js/in3Tooltip.js" />
-    </head>
     <body>
         <referenceContainer name="cart.summary">
             <block class="Edifference\In3OnsiteMessaging\Block\CartBanner"

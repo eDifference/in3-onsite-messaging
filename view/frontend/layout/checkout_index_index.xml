@@ -2,9 +2,6 @@
 <page layout="checkout"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <script src="Edifference_In3OnsiteMessaging::js/in3Tooltip.js" />
-    </head>
     <body>
         <referenceBlock name="checkout.root">
             <arguments>
@@ -15,7 +12,7 @@
                                 <item name="sidebar" xsi:type="array">
                                     <item name="children" xsi:type="array">
                                         <item name="in3-checkout-banner" xsi:type="array">
-                                            <item name="component" xsi:type="string">Edifference_In3OnsiteMessaging/js/in3-checkout-banner</item>
+                                            <item name="component" xsi:type="string">Edifference_In3OnsiteMessaging/js/in3-banner/checkout</item>
                                             <item name="displayArea" xsi:type="string">summary</item>
                                             <item name="sortOrder" xsi:type="string">1</item>
                                         </item>

@@ -1,12 +1,12 @@
 define([
+    'ko',
+    'uiComponent',
     'jquery',
-    'uiElement',
-    'Magento_Catalog/js/price-utils',
-    'priceBox',
-    'domReady!'
+    'Magento_Catalog/js/price-utils'
 ], function (
-    $,
+    ko,
     Component,
+    jQuery,
     priceUtils
 ) {
     'use strict';
@@ -28,29 +28,16 @@ define([
          * @returns {*}
          */
         initialize: function () {
-            var priceBox;
+            this._super();
+            this.observe(['amount']);
 
-            this._super()
-                .observe(['amount']);
-
-            priceBox = $(this.priceBoxSelector);
-            priceBox.on('priceUpdated', this._onPriceChange.bind(this));
-            priceBox.trigger('updatePrice');
-
-            return this;
+            jQuery(document).on('click', '.in3-widget .tooltip-toggle', function () {
+                jQuery('.in3-tooltip').toggleClass('show');
+            });
         },
 
-        isVisible: function() {
-            if (!this.amount()) {
-                return false;
-            }
-            if (this.amount() < this.min) {
-                return false;
-            }
-            if (this.amount() > this.max) {
-                return false;
-            }
-            return true;
+        getAmount: function() {
+            return priceUtils.formatPrice(this.amount()/3);
         },
 
         /**
@@ -62,10 +49,6 @@ define([
          */
         _onPriceChange: function (event, data) {
             this.amount(data.finalPrice.amount);
-        },
-
-        getAmount: function() {
-            return priceUtils.formatPrice(this.amount()/3);
         },
 
         getTheme: function() {

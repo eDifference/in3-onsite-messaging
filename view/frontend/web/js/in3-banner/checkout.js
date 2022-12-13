@@ -1,33 +1,24 @@
 define([
-    'ko',
-    'uiComponent',
+    'Edifference_In3OnsiteMessaging/js/in3-banner',
     'Magento_Checkout/js/model/totals',
-    'Magento_Catalog/js/price-utils',
     'Magento_Checkout/js/model/step-navigator',
-    'domReady!'
 ], function (
-    ko,
     Component,
     totalsService,
-    priceUtils,
     stepNavigator
 ) {
     "use strict";
 
     return Component.extend({
-        defaults: {
-            template: 'Edifference_In3OnsiteMessaging/banner'
-        },
-        amount: null,
-
         /**
          * Initialize
          *
          * @returns {*}
          */
         initialize: function () {
-            this._super()
-            this.observe(['amount']);
+            this._super();
+
+            this.theme = window.checkoutConfig.in3.theme;
 
             let parent = this;
             totalsService.totals.subscribe(function (newValue) {
@@ -51,14 +42,6 @@ define([
                 return false;
             }
             return stepNavigator.isProcessed('shipping');
-        },
-
-        getAmount: function() {
-            return priceUtils.formatPrice(this.amount()/3);
-        },
-
-        getTheme: function() {
-          return window.checkoutConfig.in3.theme
         }
     });
 });

@@ -1,28 +1,13 @@
 define([
-    'jquery',
-    'ko',
-    'uiElement',
+    'Edifference_In3OnsiteMessaging/js/in3-banner',
     'Magento_Checkout/js/model/quote',
-    'Magento_Catalog/js/price-utils',
-    'domReady!'
 ], function (
-    $,
-    ko,
     Component,
-    quote,
-    priceUtils
+    quote
 ) {
     'use strict';
 
     return Component.extend({
-        defaults: {
-            template: 'Edifference_In3OnsiteMessaging/banner',
-        },
-        min: null,
-        max: null,
-        theme: null,
-        amount: null,
-
         /**
          * Initialize
          *
@@ -30,7 +15,6 @@ define([
          */
         initialize: function () {
             this._super()
-            this.observe(['amount']);
 
             let parent = this;
             quote.totals.subscribe(function (newValue) {
@@ -49,14 +33,6 @@ define([
                 return false;
             }
             return true;
-        },
-
-        getAmount: function() {
-            return priceUtils.formatPrice(this.amount()/3);
-        },
-
-        getTheme: function() {
-            return this.theme;
         }
     });
 });
