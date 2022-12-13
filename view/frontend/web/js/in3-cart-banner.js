@@ -34,8 +34,9 @@ define([
 
             let parent = this;
             quote.totals.subscribe(function (newValue) {
-                parent.amount(newValue['base_grand_total']);
+                parent.amount(newValue['grand_total']);
             });
+            this.amount(quote.totals().grand_total);
 
             return this;
         },

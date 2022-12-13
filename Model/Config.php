@@ -52,7 +52,7 @@ class Config
      */
     public function getTheme(int|null|string|ScopeConfigInterface $scopeCode = null): string
     {
-        return $this->scopeConfig->getValue(
+        return (string) $this->scopeConfig->getValue(
             self::XML_PATH_FRONTEND_THEME,
             ScopeInterface::SCOPE_STORE,
             $scopeCode

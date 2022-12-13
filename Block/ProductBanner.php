@@ -6,7 +6,6 @@ namespace Edifference\In3OnsiteMessaging\Block;
 use Edifference\In3OnsiteMessaging\Model\Config;
 use Edifference\In3OnsiteMessaging\Model\Config\Source\Locations;
 use Magento\Catalog\Helper\Data as CatalogHelper;
-use Magento\Framework\Pricing\Helper\Data as PricingHelper;
 use Magento\Framework\View\Element\Template\Context;
 
 /**
@@ -19,21 +18,18 @@ class ProductBanner extends AbstractBanner
     /**
      * @param Context       $context
      * @param Config        $config
-     * @param PricingHelper $priceHelper
      * @param CatalogHelper $catalogHelper
      * @param array         $data
      */
     public function __construct(
         Context       $context,
         Config        $config,
-        PricingHelper $priceHelper,
         CatalogHelper $catalogHelper,
         array         $data = []
     ) {
         parent::__construct(
             $context,
             $config,
-            $priceHelper,
             $data
         );
         $this->catalogHelper = $catalogHelper;

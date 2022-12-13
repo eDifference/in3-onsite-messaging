@@ -4,28 +4,24 @@ declare(strict_types = 1);
 namespace Edifference\In3OnsiteMessaging\Block;
 
 use Edifference\In3OnsiteMessaging\Model\Config;
-use Magento\Framework\Pricing\Helper\Data as PricingHelper;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 
 /**
  * @copyright (c) eDifference 2022
  */
-class AbstractBanner extends Template
+abstract class AbstractBanner extends Template
 {
     protected Config $config;
-    protected PricingHelper $priceHelper;
 
     /**
      * @param Context       $context
      * @param Config        $config
-     * @param PricingHelper $priceHelper
      * @param array         $data
      */
     public function __construct(
         Context       $context,
         Config        $config,
-        PricingHelper $priceHelper,
         array         $data = []
     ) {
         parent::__construct(
@@ -33,7 +29,6 @@ class AbstractBanner extends Template
             $data
         );
         $this->config = $config;
-        $this->priceHelper = $priceHelper;
     }
 
     /**

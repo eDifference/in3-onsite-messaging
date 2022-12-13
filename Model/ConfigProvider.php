@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Edifference\In3OnsiteMessaging\Model;
 
+use Edifference\In3OnsiteMessaging\Model\Config\Source\Locations;
 use Magento\Checkout\Model\ConfigProviderInterface;
 
 /**
@@ -31,6 +32,11 @@ class ConfigProvider implements ConfigProviderInterface
                 'min' => $this->config->getMinPrice(),
                 'max' => $this->config->getMaxPrice(),
                 'theme' => $this->config->getTheme(),
+                'showInCheckout' => in_array(
+                    Locations::CHECKOUT,
+                    $this->config->getLocations(),
+                    true
+                )
             ]
         ];
     }

@@ -31,7 +31,7 @@ define([
 
             let parent = this;
             totalsService.totals.subscribe(function (newValue) {
-                parent.amount(newValue['base_grand_total']);
+                parent.amount(newValue['grand_total']);
             });
 
             return this;
@@ -39,6 +39,9 @@ define([
 
         isVisible: function() {
             if (!this.amount()) {
+                return false;
+            }
+            if (!window.checkoutConfig.in3.showInCheckout) {
                 return false;
             }
             if (this.amount() < window.checkoutConfig.in3.min) {
