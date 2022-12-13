@@ -61,10 +61,7 @@ define([
          * @private
          */
         _onPriceChange: function (event, data) {
-            console.debug(data);
-            console.debug(data.finalPrice.final);
-            console.debug(this.min, this.max);
-            this.amount(data.finalPrice.final);
+            this.amount(data.finalPrice.amount);
         },
 
         getAmount: function() {
