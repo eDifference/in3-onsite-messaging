@@ -15,6 +15,8 @@ class Config
     public const XML_PATH_FRONTEND_THEME = 'in3_onsite_messaging/frontend/theme';
     public const XML_PATH_PRICE_MIN = 'in3_onsite_messaging/price/min';
     public const XML_PATH_PRICE_MAX = 'in3_onsite_messaging/price/max';
+    public const XML_PATH_COUNTRY_CODE_PATH = 'general/country/default';
+    public const XML_PATH_LOCALE_PATH = 'general/locale/code';
 
     protected ScopeConfigInterface $scopeConfig;
 
@@ -85,5 +87,29 @@ class Config
             ScopeInterface::SCOPE_STORE,
             $scopeCode
         );
+    }
+
+    /**
+     * Get Country code by website scope
+     * @return string
+     */
+    public function getCountryCodeByWebsite(): string
+    {
+        return strtolower($this->scopeConfig->getValue(
+            self::XML_PATH_COUNTRY_CODE_PATH,
+            ScopeInterface::SCOPE_WEBSITES
+        ));
+    }
+
+    /**
+     * Get Locale language code by website scope
+     * @return string
+     */
+    public function getLocaleLanguageByWebsite(): string
+    {
+        return substr($this->scopeConfig->getValue(
+            self::XML_PATH_LOCALE_PATH,
+            ScopeInterface::SCOPE_WEBSITES
+        ), 0, -3);
     }
 }

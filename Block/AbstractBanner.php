@@ -70,10 +70,14 @@ abstract class AbstractBanner extends Template
     }
 
     /**
+     * Return payin3.eu link with Current Country and Language code and Base URL for Analytic measurements
      * @return string
      */
     public function getPayIn3Url(): string
     {
-        return 'https://payin3.eu/nl/?country=nl&_&utm_source={url/domeinwebsite}&utm_medium=onsiteplugin&utm_campaign=magento&utm_content=readmore';
+        return 'https://payin3.eu/' . $this->config->getLocaleLanguageByWebsite() . '/?country=' .
+        $this->config->getCountryCodeByWebsite() .
+        '&_&utm_source=' . $this->getBaseUrl() .
+        '&utm_medium=onsiteplugin&utm_campaign=magento&utm_content=readmore';
     }
 }
