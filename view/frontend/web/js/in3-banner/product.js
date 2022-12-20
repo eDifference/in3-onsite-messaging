@@ -15,11 +15,12 @@ define([
         initialize: function () {
             this._super();
 
-            var priceBox;
-
+            let priceBox;
             priceBox = jQuery(this.priceBoxSelector);
-            priceBox.on('priceUpdated', this._onPriceChange.bind(this));
-            priceBox.trigger('updatePrice');
+            if (!_.isEmpty(priceBox)) {
+                priceBox.on('priceUpdated', this._onPriceChange.bind(this));
+                priceBox.trigger('updatePrice');
+            }
 
             return this;
         },

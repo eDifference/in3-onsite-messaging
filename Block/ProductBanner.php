@@ -6,7 +6,10 @@ namespace Edifference\In3OnsiteMessaging\Block;
 use Edifference\In3OnsiteMessaging\Model\Config;
 use Edifference\In3OnsiteMessaging\Model\Config\Source\Locations;
 use Magento\Catalog\Helper\Data as CatalogHelper;
+use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\Product\Type;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\GroupedProduct\Model\Product\Type\Grouped;
 
 /**
  * @copyright (c) eDifference 2022
@@ -47,6 +50,39 @@ class ProductBanner extends AbstractBanner
         if (!$product) {
             return '';
         }
+        if (!$this->hasProductTypeRestriction($product)) {
+            return parent::_toHtml();
+        }
+        foreach (array_merge(
+                     $product->getTypeInstance()->getAssociatedProducts($product),
+                     [$product]
+                 ) as $associatedProduct) {
+            if ($product->getTypeId() === Grouped::TYPE_CODE) {
+                continue;
+            }
+            if ($associatedProduct->getFinalPrice() < $this->getMin()) {
+                return '';
+            }
+            if ($associatedProduct->getFinalPrice() > $this->getMax()) {
+                return '';
+            }
+        }
+
         return parent::_toHtml();
+    }
+
+    /**
+     * @param Product $product
+     * @return bool
+     */
+    private function hasProductTypeRestriction(Product $product): bool
+    {
+        if ($product->getTypeId() === Type::TYPE_SIMPLE) {
+            return true;
+        }
+        if ($product->getTypeId() === Grouped::TYPE_CODE) {
+            return true;
+        }
+        return false;
     }
 }

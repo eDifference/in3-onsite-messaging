@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="in3.banner.product.page" template="Edifference_In3OnsiteMessaging::product_grouped.phtml" />
+    </body>
+</page>

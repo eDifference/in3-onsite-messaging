@@ -1,0 +1,27 @@
+<?php
+declare(strict_types = 1);
+
+use Edifference\In3OnsiteMessaging\Block\ProductBanner;
+/** @var ProductBanner $block */
+
+?>
+<div id="in3" data-bind="scope: 'in3-product-grouped-banner'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "#in3": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "in3-product-grouped-banner": {
+                        "component": "Edifference_In3OnsiteMessaging/js/in3-banner/product/grouped",
+                        "config": {
+                            "theme": "<?= $block->getTheme(); ?>",
+                            "url": "<?= $block->getPayIn3Url(); ?>"
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

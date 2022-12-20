@@ -48,6 +48,9 @@ define([
          * @private
          */
         _onPriceChange: function (event, data) {
+            if (_.isEmpty(data)) {
+                return;
+            }
             this.amount(data.finalPrice.amount);
         },
 
