@@ -60,6 +60,10 @@ define([
 
         getPayIn3Url: function() {
             return this.url;
+        },
+
+        getPayIn3Text: function() {
+            return 'Or pay <strong>%1 in 3 instalments</strong>, 0% interest';
         }
     });
 });
