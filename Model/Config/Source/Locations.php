@@ -10,11 +10,13 @@ use Magento\Framework\Option\ArrayInterface;
  */
 class Locations implements ArrayInterface
 {
-    const PRODUCT_PAGE = 'product_page';
-    const SHOPPING_CART = 'shopping_cart';
-    const CHECKOUT = 'checkout';
+    public const PRODUCT_PAGE = 'product_page';
+    public const SHOPPING_CART = 'shopping_cart';
+    public const CHECKOUT = 'checkout';
 
     /**
+     * Return array of options as value-label pairs
+     *
      * @return array
      */
     public function toOptionArray(): array

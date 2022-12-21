@@ -2,8 +2,12 @@
 declare(strict_types = 1);
 
 use Edifference\In3OnsiteMessaging\Block\ProductBanner;
-/** @var ProductBanner $block */
+use Magento\Framework\Escaper;
 
+/**
+ * @var ProductBanner $block
+ * @var Escaper $escaper
+ */
 ?>
 <div id="in3" data-bind="scope: 'in3-product-grouped-banner'">
     <!-- ko template: getTemplate() --><!-- /ko -->
@@ -16,8 +20,8 @@ use Edifference\In3OnsiteMessaging\Block\ProductBanner;
                     "in3-product-grouped-banner": {
                         "component": "Edifference_In3OnsiteMessaging/js/in3-banner/product/grouped",
                         "config": {
-                            "theme": "<?= $block->getTheme(); ?>",
-                            "url": "<?= $block->getPayIn3Url(); ?>"
+                            "theme": "<?= $escaper->escapeJs($block->getTheme()); ?>",
+                            "url": "<?= $escaper->escapeJs($block->getPayIn3Url()); ?>"
                         }
                     }
                 }

@@ -11,6 +11,8 @@ use Edifference\In3OnsiteMessaging\Model\Config\Source\Locations;
 class CartBanner extends AbstractBanner
 {
     /**
+     * Render block HTML
+     *
      * @return string
      */
     protected function _toHtml()

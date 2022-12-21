@@ -11,6 +11,8 @@ use Magento\Framework\Option\ArrayInterface;
 class Theme implements ArrayInterface
 {
     /**
+     * Return array of options as value-label pairs
+     *
      * @return array
      */
     public function toOptionArray(): array

@@ -16,6 +16,7 @@ use Magento\GroupedProduct\Model\Product\Type\Grouped;
  */
 class ProductBanner extends AbstractBanner
 {
+    /** @var CatalogHelper */
     protected CatalogHelper $catalogHelper;
 
     /**
@@ -39,6 +40,8 @@ class ProductBanner extends AbstractBanner
     }
 
     /**
+     * Render block HTML
+     *
      * @return string
      */
     protected function _toHtml()
@@ -54,9 +57,9 @@ class ProductBanner extends AbstractBanner
             return parent::_toHtml();
         }
         foreach (array_merge(
-                     $product->getTypeInstance()->getAssociatedProducts($product),
-                     [$product]
-                 ) as $associatedProduct) {
+            $product->getTypeInstance()->getAssociatedProducts($product),
+            [$product]
+        ) as $associatedProduct) {
             if ($product->getTypeId() === Grouped::TYPE_CODE) {
                 continue;
             }
@@ -72,6 +75,8 @@ class ProductBanner extends AbstractBanner
     }
 
     /**
+     * Check if the productType has a banner restriction
+     *
      * @param Product $product
      * @return bool
      */

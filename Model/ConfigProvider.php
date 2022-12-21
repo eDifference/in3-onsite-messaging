@@ -11,6 +11,7 @@ use Magento\Checkout\Model\ConfigProviderInterface;
  */
 class ConfigProvider implements ConfigProviderInterface
 {
+    /** @var Config */
     private Config $config;
 
     /**

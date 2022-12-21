@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ConfigProviderTest extends TestCase
 {
+    /** @var ObjectManager */
     private ObjectManager $objectManager;
 
     /**

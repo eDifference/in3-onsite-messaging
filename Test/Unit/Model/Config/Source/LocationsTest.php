@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class LocationsTest extends TestCase
 {
+    /** @var Locations */
     private Locations $model;
 
     /**

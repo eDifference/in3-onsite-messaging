@@ -18,6 +18,7 @@ class Config
     public const XML_PATH_COUNTRY_CODE_PATH = 'general/country/default';
     public const XML_PATH_LOCALE_PATH = 'general/locale/code';
 
+    /** @var ScopeConfigInterface */
     protected ScopeConfigInterface $scopeConfig;
 
     /**
@@ -31,6 +32,7 @@ class Config
 
     /**
      * Get locations which should display the banner
+     *
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return array
      */
@@ -41,7 +43,7 @@ class Config
             ScopeInterface::SCOPE_STORE,
             $scopeCode
         );
-        if (is_null($value)) {
+        if ($value === null) {
             return [];
         }
         return explode(',', $value);
@@ -49,6 +51,7 @@ class Config
 
     /**
      * Get the theme for the banner
+     *
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return string
      */
@@ -63,6 +66,7 @@ class Config
 
     /**
      * Get the min price of the product or quote to show the label
+     *
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return int
      */
@@ -77,6 +81,7 @@ class Config
 
     /**
      * Get the min price of the product or quote to show the label
+     *
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return int
      */
@@ -91,6 +96,7 @@ class Config
 
     /**
      * Get Country code by website scope
+     *
      * @return string
      */
     public function getCountryCodeByWebsite(): string
@@ -103,13 +109,17 @@ class Config
 
     /**
      * Get Locale language code by website scope
+     *
      * @return string
      */
     public function getLocaleLanguageByWebsite(): string
     {
-        return substr($this->scopeConfig->getValue(
-            self::XML_PATH_LOCALE_PATH,
-            ScopeInterface::SCOPE_WEBSITES
-        ), 0, -3);
+        return current(explode(
+            '_',
+            $this->scopeConfig->getValue(
+                self::XML_PATH_LOCALE_PATH,
+                ScopeInterface::SCOPE_WEBSITES
+            )
+        ));
     }
 }

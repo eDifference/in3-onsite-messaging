@@ -13,6 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ConfigTest extends TestCase
 {
+    /** @var ObjectManager */
     private ObjectManager $objectManager;
 
     /**

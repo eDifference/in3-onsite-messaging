@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ThemeTest extends TestCase
 {
+    /** @var Theme */
     private Theme $model;
 
     /**
