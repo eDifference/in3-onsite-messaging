@@ -2,12 +2,14 @@ define([
     'ko',
     'uiComponent',
     'jquery',
-    'Magento_Catalog/js/price-utils'
+    'Magento_Catalog/js/price-utils',
+    'mage/translate'
 ], function (
     ko,
     Component,
     jQuery,
-    priceUtils
+    priceUtils,
+    $t
 ) {
     'use strict';
 
@@ -63,7 +65,7 @@ define([
         },
 
         getPayIn3Text: function() {
-            return 'Or pay <strong>%1 in 3 instalments</strong>, 0% interest';
+            return $t('Or pay <strong>%1 in 3 instalments</strong>, 0% interest');
         }
     });
 });

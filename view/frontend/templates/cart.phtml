@@ -2,11 +2,9 @@
 declare(strict_types = 1);
 
 use Edifference\In3OnsiteMessaging\Block\CartBanner;
-use Magento\Framework\Escaper;
 
 /**
  * @var CartBanner $block
- * @var Escaper $escaper
  */
 ?>
 <div id="in3" class="in3" data-bind="scope: 'in3-cart-banner'">
@@ -20,9 +18,10 @@ use Magento\Framework\Escaper;
                     "in3-cart-banner": {
                         "component": "Edifference_In3OnsiteMessaging/js/in3-banner/cart",
                         "config": {
-                            "min":"<?= $escaper->escapeJs($block->getMin()); ?>",
-                            "max": "<?= $escaper->escapeJs($block->getMax()); ?>",
-                            "theme": "<?= $escaper->escapeJs($block->getTheme()); ?>"
+                            "min":"<?= $block->escapeJs($this->getMin()); ?>",
+                            "max": "<?= $block->escapeJs($this->getMax()); ?>",
+                            "theme": "<?= $block->escapeJs($this->getTheme()); ?>",
+                            "url": "<?= $block->escapeJs($this->getPayIn3Url()); ?>"
                         }
                     }
                 }

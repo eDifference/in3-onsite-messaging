@@ -2,11 +2,9 @@
 declare(strict_types = 1);
 
 use Edifference\In3OnsiteMessaging\Block\ProductBanner;
-use Magento\Framework\Escaper;
 
 /**
  * @var ProductBanner $block
- * @var Escaper $escaper
  */
 ?>
 <div id="in3" data-bind="scope: 'in3-product-banner'">
@@ -20,10 +18,10 @@ use Magento\Framework\Escaper;
                     "in3-product-banner": {
                         "component": "Edifference_In3OnsiteMessaging/js/in3-banner/product",
                         "config": {
-                            "min":"<?= $escaper->escapeJs($block->getMin()); ?>",
-                            "max": "<?= $escaper->escapeJs($block->getMax()); ?>",
-                            "theme": "<?= $escaper->escapeJs($block->getTheme()); ?>",
-                            "url": "<?= $escaper->escapeJs($block->getPayIn3Url()); ?>"
+                            "min":"<?= $block->escapeJs($this->getMin()); ?>",
+                            "max": "<?= $block->escapeJs($this->getMax()); ?>",
+                            "theme": "<?= $block->escapeJs($this->getTheme()); ?>",
+                            "url": "<?= $block->escapeJs($this->getPayIn3Url()); ?>"
                         }
                     }
                 }

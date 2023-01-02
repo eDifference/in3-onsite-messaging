@@ -36,7 +36,7 @@ class Config
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return array
      */
-    public function getLocations(int|null|string|ScopeConfigInterface $scopeCode = null): array
+    public function getLocations(ScopeConfigInterface $scopeCode = null): array
     {
         $value = $this->scopeConfig->getValue(
             self::XML_PATH_FRONTEND_LOCATIONS,
@@ -55,7 +55,7 @@ class Config
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return string
      */
-    public function getTheme(int|null|string|ScopeConfigInterface $scopeCode = null): string
+    public function getTheme(ScopeConfigInterface $scopeCode = null): string
     {
         return (string) $this->scopeConfig->getValue(
             self::XML_PATH_FRONTEND_THEME,
@@ -70,7 +70,7 @@ class Config
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return int
      */
-    public function getMinPrice(int|null|string|ScopeConfigInterface $scopeCode = null): int
+    public function getMinPrice(ScopeConfigInterface $scopeCode = null): int
     {
         return (int) $this->scopeConfig->getValue(
             self::XML_PATH_PRICE_MIN,
@@ -85,7 +85,7 @@ class Config
      * @param int|string|ScopeConfigInterface|null $scopeCode
      * @return int
      */
-    public function getMaxPrice(int|null|string|ScopeConfigInterface $scopeCode = null): int
+    public function getMaxPrice(ScopeConfigInterface $scopeCode = null): int
     {
         return (int) $this->scopeConfig->getValue(
             self::XML_PATH_PRICE_MAX,
