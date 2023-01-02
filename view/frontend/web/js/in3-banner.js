@@ -49,11 +49,12 @@ define([
          * @param {Object} data
          * @private
          */
-        _onPriceChange: function (event, data) {
-            if (_.isEmpty(data)) {
+        _onReloadPrice: function (event) {
+            let displayPrices = jQuery(event.target).data('magePriceBox').cache.displayPrices;
+            if (_.isEmpty(displayPrices)) {
                 return;
             }
-            this.amount(data.finalPrice.amount);
+            this.amount(displayPrices.finalPrice.amount);
         },
 
         getTheme: function() {

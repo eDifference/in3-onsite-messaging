@@ -18,7 +18,7 @@ define([
             let priceBox;
             priceBox = jQuery(this.priceBoxSelector);
             if (!_.isEmpty(priceBox)) {
-                priceBox.on('priceUpdated', this._onPriceChange.bind(this));
+                priceBox.on('reloadPrice', this._onReloadPrice.bind(this));
                 priceBox.trigger('updatePrice');
             }
 
