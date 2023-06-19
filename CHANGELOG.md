@@ -11,3 +11,7 @@
 ### Changed
 - IN3 logo on mobile device alignment
 - Mobile alignment widget on checkout page
+
+## [1.0.3] - 2023-06-19
+### Fixed
+- Cast the grand_total cart amount to float to prevent js errors on Magento 2.4.6 
