@@ -20,7 +20,7 @@ define([
             quote.totals.subscribe(function (newValue) {
                 parent.amount(newValue['grand_total']);
             });
-            this.amount(quote.totals().grand_total);
+            this.amount(parseFloat(quote.totals().grand_total));
 
             return this;
         },
